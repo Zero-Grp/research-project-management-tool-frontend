@@ -1,56 +1,51 @@
 import apiInstance from "../apiInstance";
 
-const getStudentGroup = () => {
-  return apiInstance
-    .get(`/api/student-group/`)
-    .then((response) => {
-      return response;
-    })
-    .catch(() => {});
+const getStudentGroups = async () => {
+  try {
+    const response = await apiInstance
+      .get(`/api/student-group/`);
+    return response;
+  } catch { }
 };
 
-const getOneStudentGroup = (groupID) => {
-  return apiInstance
-    .get(`/api/groups/${groupID}`)
-    .then((response) => {
-      return response;
-    })
-    .catch((error) => {
-      return error;
-    });
+const getOneStudentGroup = async (groupID) => {
+  try {
+    const response = await apiInstance
+      .get(`/api/student-group/${groupID}`);
+    return response;
+  } catch (error) {
+    return error;
+  }
 };
 
-const addStudentGroup = (group) => {
-  return apiInstance
-    .post(`/api/groups/`, group)
-    .then((response) => {
-      return response;
-    })
-    .catch(() => {});
+const addStudentGroup = async (group) => {
+  try {
+    const response = await apiInstance
+      .post(`/api/student-group/`, group);
+    return response;
+  } catch { }
 };
 
-const updateStudentGroup = (groupID, group) => {
-  return apiInstance
-    .put(`/api/submission/${groupID}`, group)
-    .then((response) => {
-      return response;
-    })
-    .catch((error) => {
-      return error;
-    });
+const updateStudentGroup = async (groupID, group) => {
+  try {
+    const response = await apiInstance
+      .put(`/api/student-group/${groupID}`, group);
+    return response;
+  } catch (error) {
+    return error;
+  }
 };
 
-const deleteStudentGroup = (groupId) => {
-  return apiInstance
-    .delete(`/api/groups/${groupId}`)
-    .then((response) => {
-      return response;
-    })
-    .catch(() => {});
+const deleteStudentGroup = async (groupId) => {
+  try {
+    const response = await apiInstance
+      .delete(`/api/student-group/${groupId}`);
+    return response;
+  } catch { }
 };
 
 const groupRequest = {
-  getStudentGroup,
+  getStudentGroups,
   getOneStudentGroup,
   addStudentGroup,
   updateStudentGroup,
